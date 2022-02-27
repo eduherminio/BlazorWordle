@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-    DOTNET_VERSION: 6.0.x
+  DOTNET_VERSION: 6.0.x
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: ${env.DOTNET_VERSION}
+          dotnet-version: $DOTNET_VERSION
 
       - name: Build project
         run: dotnet build -c Release
@@ -30,7 +30,7 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: ${env.DOTNET_VERSION}
+          dotnet-version: $DOTNET_VERSION
 
       - name: Test project
         run: dotnet test -c Release
@@ -45,7 +45,7 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: ${env.DOTNET_VERSION}
+          dotnet-version: $DOTNET_VERSION
 
       - name: Publish .NET Project
         run: dotnet publish ./src/BlazorWordle/BlazorWordle.csproj -c Release -o release --nologo
