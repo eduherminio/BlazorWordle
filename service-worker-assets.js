@@ -33,7 +33,7 @@
       "url": "_framework\/icudt.dat"
     },
     {
-      "hash": "sha256-hcbJO2TQCf\/427Ty6eXbqadv558g+3QfnAphS09MhFI=",
+      "hash": "sha256-Rtdg9\/1HDYn\/vtvwMgr5D4vtKTokR+GlAYjyj1aYXp8=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -45,7 +45,7 @@
       "url": "_framework\/BlazorWordle.Core.dll"
     },
     {
-      "hash": "sha256-4yI0\/kAPjIO3AbLc4Y7ZbMbiWdA7oCpNWQxKHJUcRsc=",
+      "hash": "sha256-RufhGS0yudntWHc6\/Djd6agjF+jVg3tkGK+JPqnygpE=",
       "url": "_framework\/BlazorWordle.dll"
     },
     {
@@ -57,7 +57,7 @@
       "url": "_framework\/Microsoft.AspNetCore.Components.dll"
     },
     {
-      "hash": "sha256-MKtfM\/JFTsrwgrS1ZRV9ZjOFVxZxb84bwpccCX9GBlg=",
+      "hash": "sha256-KUtJty3gvSvV3OzHBdrBXtHdGtU2ESp6u5fCH8MTrvY=",
       "url": "_framework\/Microsoft.AspNetCore.Components.Web.dll"
     },
     {
@@ -133,6 +133,10 @@
       "url": "_framework\/System.ComponentModel.Primitives.dll"
     },
     {
+      "hash": "sha256-s2kpb6ySHk8M\/y\/r1AtJtdAlo02p8JRhbelQQ149dvw=",
+      "url": "_framework\/System.Console.dll"
+    },
+    {
       "hash": "sha256-uEPktL2Fe8HoiMDdS9TipU1qHA8iTT+BYdwsJmug0ks=",
       "url": "_framework\/System.Linq.dll"
     },
@@ -173,7 +177,7 @@
       "url": "_framework\/System.Runtime.CompilerServices.Unsafe.dll"
     },
     {
-      "hash": "sha256-nhqeHl9hgRZFU28LSPRrM3+d7g6RhiRPbaOR5WpY1lE=",
+      "hash": "sha256-9rMZgQsvIobv6ZZAn\/Ss7lTUomoadCJhYoL4JqUcoRM=",
       "url": "_framework\/System.Runtime.dll"
     },
     {
@@ -213,7 +217,7 @@
       "url": "favicon.ico"
     },
     {
-      "hash": "sha256-d7zoDVkkWON\/ISzlkngN1SVqUZdQ2\/JxZutDerBvgHM=",
+      "hash": "sha256-guBKAun\/X62q2PqN9GObthog39E0aFQMTAFuxmqGo48=",
       "url": "index.html"
     },
     {
@@ -221,9 +225,13 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-HsubF5dry+cW2Du7uVcfUTMaguyDDwuWfS6kzNVknOI=",
+      "hash": "sha256-PyShQJ+5Dnd4R826T07QcqEwdeiLtjR9kZl+itYp570=",
+      "url": "scripts\/event-listener.js"
+    },
+    {
+      "hash": "sha256-PNQnzaeaMcZUxT7ZYNkfTdl4hZyLX8evm6OViu5ixEk=",
       "url": "scripts\/theme-changer.js"
     }
   ],
-  "version": "npNnChfy"
+  "version": "Oa72j6\/J"
 };
