@@ -1,28 +1,27 @@
-﻿using Ardalis.GuardClauses;
-using BlazorWordle.Core.Enums;
+﻿using BlazorWordle.Core.Enums;
 using BlazorWordle.Core.ValueObjects;
 
 namespace BlazorWordle.Core;
 
 public sealed class WordleGame
 {
-    private readonly string _solution;
     private readonly int _attemptsCount;
     private readonly List<IReadOnlyList<Letter>> _board;
     private readonly Dictionary<char, LetterState> _lettersInUse;
 
-    public int WordLength => _solution.Length;
     public int AttemptsLeft => _attemptsCount - _board.Count;
     public GameStatus Status { get; private set; }
     public IReadOnlyList<IReadOnlyList<Letter>> Board => _board;
     public IReadOnlyDictionary<char, LetterState> LettersInUse => _lettersInUse;
+    public string Solution { get; }
 
     public WordleGame(string solution, int attemptsCount)
     {
         _attemptsCount = attemptsCount;
-        _solution = Guard.Against.NullOrWhiteSpace(solution, nameof(solution)).ToLower();
         _board = new List<IReadOnlyList<Letter>>(_attemptsCount);
         _lettersInUse = new Dictionary<char, LetterState>();
+        ArgumentNullException.ThrowIfNull(solution);
+        Solution = solution.ToLowerInvariant();
 
         Status = GameStatus.InProgress;
     }
@@ -34,16 +33,16 @@ public sealed class WordleGame
             throw new Exception("Game over");
         }
 
-        if (word.Length != WordLength)
+        if (word.Length != Solution.Length)
         {
-            throw new ArgumentException($"Word length must be {WordLength}", nameof(word));
+            throw new ArgumentException($"Word length must be {Solution.Length}", nameof(word));
         }
 
         var (matchCount, row) = Match(word.ToLower());
 
         _board.Add(row);
 
-        if (matchCount == WordLength)
+        if (matchCount == Solution.Length)
         {
             Status = GameStatus.Win;
         }
@@ -60,17 +59,17 @@ public sealed class WordleGame
         var count = 0;
         var row = new List<Letter>(word.Length);
 
-        for (var i = 0; i < _solution.Length; i++)
+        for (var i = 0; i < Solution.Length; i++)
         {
             var curChar = word[i];
             var state = LetterState.Absent;
 
-            if (curChar == _solution[i])
+            if (curChar == Solution[i])
             {
                 state = LetterState.Correct;
                 count++;
             }
-            else if (_solution.Contains(curChar))
+            else if (Solution.Contains(curChar))
             {
                 state = LetterState.Present;
             }

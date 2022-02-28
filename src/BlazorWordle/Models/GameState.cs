@@ -24,11 +24,12 @@ public sealed class GameState : IKeyboardState, IGameBoardState
 
     #region State
 
-    public int WordLength => _game.WordLength;
     public int AttemptsLeft => _game.AttemptsLeft;
     public ICurrentWordState CurrentWord => _currentWord;
     public IReadOnlyList<IReadOnlyList<Letter>> Board => _game.Board;
     public IReadOnlyDictionary<char, LetterState> LettersInUse => _game.LettersInUse;
+    public string Solution => _game.Solution;
+    public GameStatus Status => _game.Status;
 
     #endregion
 

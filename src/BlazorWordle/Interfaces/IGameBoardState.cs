@@ -14,10 +14,11 @@ public interface IGameBoardState
     #region State
 
     ICurrentWordState CurrentWord { get; }
-    int WordLength { get; }
     int AttemptsLeft { get; }
     IReadOnlyList<IReadOnlyList<Letter>> Board { get; }
     IReadOnlyDictionary<char, LetterState> LettersInUse { get; }
+    string Solution { get; }
+    GameStatus Status { get; }
 
     #endregion
 }
