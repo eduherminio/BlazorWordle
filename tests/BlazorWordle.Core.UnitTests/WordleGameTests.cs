@@ -17,7 +17,7 @@ public class WordleGameTests
 
         // Assert
         sut.Status.Should().Be(GameStatus.InProgress);
-        sut.Solution.Should().Be(solution);
+        sut.Solution.Should().Be(solution.ToLowerInvariant());
         sut.AttemptsLeft.Should().Be(6);
     }
 
