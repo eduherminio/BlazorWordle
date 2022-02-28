@@ -1,7 +1,18 @@
-﻿@using BlazorWordle.Interfaces
+﻿@using BlazorWordle.Core.Enums
+@using BlazorWordle.Interfaces
 @implements IDisposable
 
 <div class="game-board">
+    @if (State.Status == GameStatus.Win)
+    {
+        <h2>Congrats, you guessed it! 🥳</h2>
+    }
+    else if (State.Status == GameStatus.Lose)
+    {
+        <h2>Sorry, you ran out of attempts 😞</h2>
+        <h2>The solution was @State.Solution.ToUpperInvariant()</h2>
+    }
+
     @* Answers *@
     @foreach (var row in State.Board)
     {
@@ -21,7 +32,7 @@
         @for (int i = 1; i < State.AttemptsLeft; i++)
         {
             <div @key="i" class="row">
-                @for (int j = 0; j < State.WordLength; j++)
+                @for (int j = 0; j < State.Solution.Length; j++)
                 {
                     <div @key="j" class="cell" />
                 }
