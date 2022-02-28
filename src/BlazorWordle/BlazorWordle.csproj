@@ -13,6 +13,12 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <PublishTrimmed>true</PublishTrimmed>
+    <BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\BlazorWordle.Core\BlazorWordle.Core.csproj" />
   </ItemGroup>
