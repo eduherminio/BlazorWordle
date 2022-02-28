@@ -6,7 +6,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+      fail-fast: false
+
     steps:
       - uses: actions/checkout@v2
 
@@ -15,25 +21,17 @@ jobs:
         with:
           dotnet-version: 6.0.x
 
+      - name: Restore project
+        run: dotnet restore -c Release
+
       - name: Build project
-        run: dotnet build -c Release
-
-  test:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 6.0.x
+        run: dotnet build -c Release --no-restore
 
       - name: Test project
-        run: dotnet test -c Release
+        run: dotnet test -c Release --no-build
 
   deploy:
-    needs: [test]
+    needs: [build]
     if: github.event_name != 'pull_request' && github.ref_name == 'master'
     runs-on: ubuntu-latest
     steps:
