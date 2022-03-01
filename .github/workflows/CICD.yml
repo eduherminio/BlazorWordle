@@ -37,7 +37,7 @@ jobs:
 
   deploy:
     needs: [build]
-    if: (github.event_name != 'pull_request' && github.ref_name == 'master') || github.event.inputs.should_deploy == 'true')
+    if: (github.event_name != 'pull_request' && github.ref_name == 'master') || github.event.inputs.should_deploy == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
