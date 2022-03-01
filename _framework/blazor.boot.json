@@ -3,7 +3,7 @@
   "config": [ ],
   "debugBuild": false,
   "entryAssembly": "BlazorWordle",
-  "icuDataMode": 0,
+  "icuDataMode": 2,
   "linkerEnabled": true,
   "resources": {
     "assembly": {
@@ -34,7 +34,7 @@
       "System.Net.Http.dll": "sha256-ONiw4ABrgowA\/XOB2RZJE0p8Rd2B5Xhlk0Mkb3BZxQk=",
       "System.Net.Primitives.dll": "sha256-kSX2xinHYD\/lBM65F0ZoaVY4bydfy36vU+Zxmp60XHQ=",
       "System.ObjectModel.dll": "sha256-b7MgVSJCSDbqej4Qlva5WgYtWyGrDtmVFIxX2dFXmeU=",
-      "System.Private.CoreLib.dll": "sha256-+3WRxB22gZBB0JptvPXFIn88q1mQLiDGjxV6JlaQ8LM=",
+      "System.Private.CoreLib.dll": "sha256-moXzc7jbwn6oePqC6gyYwViorVky4xXqFpd0xr3Ti9I=",
       "System.Private.Runtime.InteropServices.JavaScript.dll": "sha256-aqnVBu7zG0n4RV+5VZd+LoiHZCTwoLghAmsrnhRER5k=",
       "System.Private.Uri.dll": "sha256-V2ktz\/H\/vOG+3IA3B\/yMHYuluf4fpztXnxDS6rik0Jk=",
       "System.Runtime.CompilerServices.Unsafe.dll": "sha256-KwdHFKy9LFj6xfXZg8Wyi8jq3DQFNrVYYQW2\/YnUW8E=",
@@ -49,12 +49,7 @@
     "pdb": null,
     "runtime": {
       "dotnet.6.0.2.0c4ewytdwm.js": "sha256-wbTVn69TU0+WI83iB+kky8tf\/BjZdYJeM0rUP96ur\/c=",
-      "dotnet.timezones.blat": "sha256-9CBC8Dy2PSGOWOyYnxE7NSoyYzDDDcaexiBpkBhI80U=",
-      "dotnet.wasm": "sha256-K3JNG2KmmxJjhVUWd8I1bhpCGQUbI\/ddIkZyC9nM4gw=",
-      "icudt_CJK.dat": "sha256-WPyI4hWDPnOw62Nr27FkzGjdbucZnQD+Ph+GOPhAedw=",
-      "icudt_EFIGS.dat": "sha256-4RwaPx87Z4dvn77ie\/ro3\/QzyS+\/gGmO3Y\/0CSAXw4k=",
-      "icudt_no_CJK.dat": "sha256-OxylFgLJlFqixsj+nLxYVsv5iZLvfIKMpLf9hrWaChA=",
-      "icudt.dat": "sha256-Zuq0dWAsBm6\/2lSOsz7+H9PvFaRn61KIXHMMwXDfvyE="
+      "dotnet.wasm": "sha256-K3JNG2KmmxJjhVUWd8I1bhpCGQUbI\/ddIkZyC9nM4gw="
     },
     "satelliteResources": null
   }
