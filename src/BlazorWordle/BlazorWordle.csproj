@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <PropertyGroup>
+    <BlazorEnableCompression>false</BlazorEnableCompression>
     <PublishTrimmed>true</PublishTrimmed>
     <BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
     <InvariantGlobalization>true</InvariantGlobalization>
