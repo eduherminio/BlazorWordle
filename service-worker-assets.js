@@ -177,12 +177,16 @@
       "url": "favicon.ico"
     },
     {
-      "hash": "sha256-guBKAun\/X62q2PqN9GObthog39E0aFQMTAFuxmqGo48=",
+      "hash": "sha256-8Gb6PUm04kQkPIicDl\/SKyH42vTp4nzyjDbHJzbBaRI=",
       "url": "index.html"
     },
     {
       "hash": "sha256-rsB6r2t31mZzT3j7In3jDWkmjlTs1fiZ9fo7P9n\/w6k=",
       "url": "manifest.json"
+    },
+    {
+      "hash": "sha256-8EnC6wNNYIcqKg8OOcOZYTjP7JT9RO2KAKzQBUvgq+M=",
+      "url": "scripts\/decode.min.js"
     },
     {
       "hash": "sha256-PyShQJ+5Dnd4R826T07QcqEwdeiLtjR9kZl+itYp570=",
@@ -193,5 +197,5 @@
       "url": "scripts\/theme-changer.js"
     }
   ],
-  "version": "gBw4yrn9"
+  "version": "5eV4Mcrr"
 };
