@@ -2,7 +2,6 @@
 
 public sealed class WordsClient
 {
-    private IReadOnlyList<string>? _words;
     private readonly HttpClient _client;
 
     public WordsClient(HttpClient client)
@@ -10,21 +9,15 @@ public sealed class WordsClient
         _client = client;
     }
 
-    private async Task<IReadOnlyList<string>> GetWordsAsync()
+    public async Task<IReadOnlyList<string>> GetWordsAsync()
     {
-        if (_words is null)
-        {
-            var response = await _client.GetStringAsync("assets/words.txt");
-            _words = response.Split(Environment.NewLine, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
-        }
-
-        return _words;
+        return (await _client.GetStringAsync("assets/words.txt"))
+            .ToLowerInvariant()
+            .Split(Environment.NewLine, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
     }
 
-    public async Task<string> GetRandomWordAsync()
+    public static string GetRandomWord(IReadOnlyList<string> words)
     {
-        var words = await GetWordsAsync();
-
         var word = words[Random.Shared.Next(0, words.Count)];
 
         if (string.IsNullOrEmpty(word))

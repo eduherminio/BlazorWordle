@@ -13,7 +13,7 @@ public class WordleGameTests
         const string solution = "Hello";
 
         // Act
-        WordleGame sut = new(solution, 6);
+        WordleGame sut = new(solution, Array.Empty<string>(), 6);
 
         // Assert
         sut.Status.Should().Be(GameStatus.InProgress);
@@ -26,7 +26,7 @@ public class WordleGameTests
     {
         // Arrange
         const string solution = "Hello";
-        WordleGame sut = new(solution, 6);
+        WordleGame sut = new(solution, Array.Empty<string>(), 6);
 
         // Act
         sut.Submit("World");
@@ -40,7 +40,7 @@ public class WordleGameTests
     {
         // Arrange
         const string solution = "Hello";
-        WordleGame sut = new(solution, 6);
+        WordleGame sut = new(solution, Array.Empty<string>(), 6);
 
         // Act
         sut.Submit("World");
@@ -56,7 +56,7 @@ public class WordleGameTests
     {
         // Arrange
         const string solution = "Hello";
-        WordleGame sut = new(solution, 6);
+        WordleGame sut = new(solution, Array.Empty<string>(), 6);
 
         // Act
         sut.Submit("World");
@@ -70,7 +70,7 @@ public class WordleGameTests
     {
         // Arrange
         const string solution = "Hello";
-        WordleGame sut = new(solution, 6);
+        WordleGame sut = new(solution, Array.Empty<string>(), 6);
 
         // Act
         sut.Submit("World");
@@ -84,7 +84,7 @@ public class WordleGameTests
     {
         // Arrange
         const string solution = "Hello";
-        WordleGame sut = new(solution, 6);
+        WordleGame sut = new(solution, Array.Empty<string>(), 6);
 
         // Act
         sut.Submit("Hello");
@@ -98,7 +98,7 @@ public class WordleGameTests
     {
         // Arrange
         const string solution = "Hello";
-        WordleGame sut = new(solution, 6);
+        WordleGame sut = new(solution, Array.Empty<string>(), 6);
 
         // Act
         sut.Submit("wordA");
@@ -110,5 +110,21 @@ public class WordleGameTests
 
         // Assert
         sut.Status.Should().Be(GameStatus.Lose);
+    }
+
+    [Fact]
+    public void Submite_madeup_work()
+    {
+        // Arrange
+        const string solution = "Hello";
+        WordleGame sut = new(solution, Array.Empty<string>(), 6);
+
+        // Act
+        var result = sut.Submit("HHHHH");
+
+        // Assert
+        result.Should().Be(false);
+        sut.AttemptsLeft.Should().Be(6);
+        Assert.Empty(sut.LettersInUse);
     }
 }

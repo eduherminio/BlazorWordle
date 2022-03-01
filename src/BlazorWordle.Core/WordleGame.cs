@@ -6,6 +6,7 @@ namespace BlazorWordle.Core;
 public sealed class WordleGame
 {
     private readonly int _attemptsCount;
+    private readonly IReadOnlyList<string> _allWords;
     private readonly List<IReadOnlyList<Letter>> _board;
     private readonly Dictionary<char, LetterState> _lettersInUse;
 
@@ -15,8 +16,9 @@ public sealed class WordleGame
     public IReadOnlyDictionary<char, LetterState> LettersInUse => _lettersInUse;
     public string Solution { get; }
 
-    public WordleGame(string solution, int attemptsCount)
+    public WordleGame(string solution, IReadOnlyList<string> allWords, int attemptsCount)
     {
+        _allWords = allWords;
         _attemptsCount = attemptsCount;
         _board = new List<IReadOnlyList<Letter>>(_attemptsCount);
         _lettersInUse = new Dictionary<char, LetterState>();
@@ -26,7 +28,7 @@ public sealed class WordleGame
         Status = GameStatus.InProgress;
     }
 
-    public void Submit(string word)
+    public bool Submit(string word)
     {
         if (AttemptsLeft == 0)
         {
@@ -38,7 +40,14 @@ public sealed class WordleGame
             throw new ArgumentException($"Word length must be {Solution.Length}", nameof(word));
         }
 
-        var (matchCount, row) = Match(word.ToLower());
+        word = word.ToLowerInvariant();
+
+        if (!_allWords.Contains(word))
+        {
+            return false;
+        }
+
+        var (matchCount, row) = Match(word);
 
         _board.Add(row);
 
@@ -50,6 +59,8 @@ public sealed class WordleGame
         {
             Status = GameStatus.Lose;
         }
+
+        return true;
     }
 
     #region Private methods

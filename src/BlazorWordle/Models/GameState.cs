@@ -10,9 +10,9 @@ public sealed class GameState : IKeyboardState, IGameBoardState
     private readonly WordleGame _game;
     private readonly CurrentWordState _currentWord;
 
-    public GameState(string solution)
+    public GameState(string solution, IReadOnlyList<string> allWords)
     {
-        _game = new WordleGame(solution, 6);
+        _game = new WordleGame(solution, allWords, 6);
         _currentWord = new CurrentWordState(solution.Length);
     }
 
@@ -42,8 +42,10 @@ public sealed class GameState : IKeyboardState, IGameBoardState
             return;
         }
 
-        _game.Submit(CurrentWord.Value);
-        _currentWord.Clear();
+        if (_game.Submit(CurrentWord.Value))
+        {
+            _currentWord.Clear();
+        }
 
         OnStateChanged?.Invoke();
     }

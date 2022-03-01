@@ -20,8 +20,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var word = await client.GetRandomWordAsync();
-        _game = new GameState(word);
+        var words = await client.GetWordsAsync();
+        var word = WordsClient.GetRandomWord(words);
+        _game = new GameState(word, words);
 
         await base.OnInitializedAsync();
     }
